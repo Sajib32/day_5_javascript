@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title></title>
+        <script>
+            //var number = 10;
+            function myFunction()
+            {     
+                var number_1 = document.getElementById("operand1").value;
+                var number_2 = document.getElementById("operand2").value;
+                var number_3 = document.getElementById("operator").value;
+                if(isNaN(number_1) || (isNaN(number_2))){
+                    document.getElementById("result").innerHTML="you must enter valid number of number_1, number_2 & also operators(*,/,+,-)";    
+                }
+                else{
+                    var res = calc(number_1, number_2, number_3);
+                    document.getElementById("result").innerHTML=res;
+                }
+            }
+            
+             function calc(a, b, o)
+             {      
+                if(o=='+'){
+                    var add = Number(a) + Number(b);
+                    return add;
+                    }
+                else if(o=='-'){
+                    var sub = Number(a) - Number(b);
+                    return sub;
+                }
+                else if(o=='*'){
+                    var mul = Number(a) * Number(b);
+                    return mul;
+                }
+
+                else if(o == '/')
+                {
+                    if(b > 0){
+                        var divide = Number(a) / Number(b);
+                        return divide;
+
+                    }
+                    else{
+                        return document.getElementById("result").innerHTML="You must enter positive number of number_2";
+                    }
+
+                }
+                else{
+                    return document.getElementById("result").innerHTML="Positive Enter both number of number_1 and number_2 & also operators(*,/,+,-)";
+                }
+             }
+           
+        </script>
+        
+    </head>
+    
+<body>
+   <h2>Calculator</h2>
+    <input type="text" id="operand1" placeholder="number 1"/>
+    <br>
+    <input type="text" id="operand2" placeholder="number 2"/>
+    <br>
+    <input type="text" id="operator" placeholder="operator"/>
+    <br>
+    
+    <div id="result"></div>
+    <br>
+    <button onClick="myFunction()">Result</button> 
+    
+</body>
+</html>
