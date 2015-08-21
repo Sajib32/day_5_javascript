@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title></title>
+        <script>
+            function myFunction(){
+                var num = document.getElementById("number").value; 
+                var digit, n;
+                var a = [];
+                do {
+                    digit = num % 10;
+                    num = Math.floor(num/10);
+                    console.log(digit);
+                    a.unshift(digit);
+                } while (num > 0);
+                
+                
+                var convert = parseInt(a);
+                console.log(convert);
+                /*
+                var len;
+                len = a.length;
+                for(i=0; i<len; i++){
+                    console.log(a[i]);
+                }
+                */
+                
+                
+            }
+           
+        </script>   
+    </head>  
+<body>
+   <h2>Prime Numbers:</h2>
+    <input type="text" id="number" placeholder="Enter number"/>
+    <br>
+    <div id="result"></div>
+  
+    <br>
+    <button onClick="myFunction()">Show Numbers</button>  
+</body>
+</html>

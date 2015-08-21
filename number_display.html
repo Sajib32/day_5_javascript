@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title></title>
+        <script>
+            function myFunction(){
+                var num = document.getElementById("number").value; 
+                var digit, n, b, count = 0;
+                var a = [];
+                num = Number(num);
+                if(!isNaN(num)){
+                    do {
+                        digit = num % 10;
+                        num = Math.floor(num/10);
+                        console.log(digit);
+                        a.unshift(digit);
+                    } while (num > 0);
+
+                    console.log(a);
+                    var len;
+                    len = a.length;
+                    for(i=0; i<len; i++){         
+                        console.log(a[i]);
+                        if(b == undefined){
+                            b = a[0];
+                            var count = count+1;
+                        }
+                        else{
+                            var count = count+1;
+                            b = b + "<br>" + a[i]; 
+                        }
+                        document.getElementById("result").innerHTML = "Input numbers are:"+ "<br>" + b; 
+                        document.getElementById("count").innerHTML = "number of digits are:" + count; 
+                    }
+
+                
+                }
+                else{
+                    document.getElementById("warning").innerHTML = "Please enter a integer value.";
+                }
+
+                
+            }
+           
+        </script>   
+    </head>  
+<body>
+   <h2>Number display:</h2>
+    <input type="text" id="number" placeholder="Enter number"/>
+    <br>
+    <div id="result"></div>
+    <div id="warning"></div>
+    <div id="count"></div>
+    <br>
+    <button onClick="myFunction()">Show Numbers</button>  
+</body>
+</html>
