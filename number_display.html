@@ -2,12 +2,18 @@
     <head>
         <title></title>
         <script>
-            function myFunction(){
+            function numberDisplay(){
                 var num = document.getElementById("number").value; 
                 var digit, n, b, count = 0;
                 var a = [];
                 num = Number(num);
-                if(!isNaN(num)){
+                if(isNaN(num)){
+                    document.getElementById("count").innerHTML = "Please enter a valid integer value greater than 0";
+                }
+                else if(num == ' '){
+                    document.getElementById("count").innerHTML = "Please enter a valid integer value greater than 0 and no space.";
+                }
+                else if(!isNaN(num)){
                     do {
                         digit = num % 10;
                         num = Math.floor(num/10);
@@ -18,24 +24,31 @@
                     console.log(a);
                     var len;
                     len = a.length;
-                    for(i=0; i<len; i++){         
+                    for(i=0; i<len; i++){  
+                        var p;
                         console.log(a[i]);
-                        if(b == undefined){
-                            b = a[0];
-                            var count = count+1;
+                        //if(a[i] != ' '){
+                        count++;
+                        if(count == 1){
+                            b = a[i];
+                         //   var count = count+1;
                         }
                         else{
-                            var count = count+1;
+                            //var count = count+1;
                             b = b + "<br>" + a[i]; 
                         }
                         document.getElementById("result").innerHTML = "Input numbers are:"+ "<br>" + b; 
                         document.getElementById("count").innerHTML = "number of digits are:" + count; 
+                        //}
+                   
+
                     }
 
                 
                 }
+              
                 else{
-                    document.getElementById("warning").innerHTML = "Please enter a integer value.";
+                    document.getElementById("count").innerHTML = "Please enter a valid integer value greater than 0"; 
                 }
 
                 
@@ -51,6 +64,6 @@
     <div id="warning"></div>
     <div id="count"></div>
     <br>
-    <button onClick="myFunction()">Show Numbers</button>  
+    <button onClick="numberDisplay()">Show Numbers</button>  
 </body>
 </html>

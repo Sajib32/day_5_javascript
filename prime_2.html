@@ -2,23 +2,21 @@
     <head>
         <title></title>
         <script>
-            function myPrime(){
-                var i, count = 0;
+            function myFunction(){
+                var i, count = 1;
                 var number = document.getElementById("operand1").value;
                 if(isNaN(number) || number < 2){
                     document.getElementById("result").innerHTML="You must enter a number greater than 2";
                 }
                 else if (number > 0){
                     for(i = 2; i < number; i++){
-                        var prime;
                         if (isPrime(i)){
-                            count++;
-                            
-                            if(count == 1){
+                            var prime;
+                            if(prime == undefined){
                                 prime = i;
                             }
                             else{
-                                // count += 1;
+                                count += 1;
                                 prime = prime + "<br>" + i;
                             //document.getElementById("count").innerHTML = count;
                             
@@ -60,6 +58,6 @@
      <br>
     <div id="count"></div>
     <br>
-    <button onClick="myPrime()">Show Prime Numbers</button>  
+    <button onClick="myFunction()">Show Prime Numbers</button>  
 </body>
 </html>
